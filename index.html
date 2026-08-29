@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Анимационная команда</title>
+  <style>
+    :root {
+      --bg: #0f0f13;
+      --text: #eaeaea;
+      --accent: #6c5ce7;
+      --card-bg: #1a1a24;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(15,15,19,0.9);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; }
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem;
+      background: radial-gradient(circle at 30% 20%, #2d2d44, var(--bg));
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-content { padding: 1rem; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🎬 AnimTeam</div>
+    <nav>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#about">О команде</a>
+      <a href="#services">Услуги</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Создаём анимацию, которая цепляет</h1>
+    <p>Рекламные ролики, моушн-дизайн, 2D/3D анимация для брендов и проектов</p>
+    <a href="#contact" class="btn">Обсудить проект</a>
+  </section>
+
+  <section id="portfolio">
+    <h2 style="text-align:center; margin-top:3rem;">Наши работы</h2>
+    <div class="grid">
+      <!-- Карточки работ -->
+      <div class="card">
+        <img src="https://via.placeholder.com/400x240" alt="Проект 1">
+        <div class="card-content">
+          <h3>Рекламный ролик</h3>
+          <p>3D анимация для бренда одежды</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x240" alt="Проект 2">
+        <div class="card-content">
+          <h3>Моушн-дизайн</h3>
+          <p>Анимированная графика для YouTube</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x240" alt="Проект 3">
+        <div class="card-content">
+          <h3>2D персонажи</h3>
+          <p>Серия анимаций для образовательного проекта</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="max-width:800px; margin: 4rem auto; padding: 0 1rem;">
+    <h2>О команде</h2>
+    <p>Мы — небольшая команда аниматоров, моушн-дизайнеров и режиссёров. Работаем с 2020 года, сделали более 50 проектов для брендов, YouTube-каналов и образовательных платформ.</p>
+  </section>
+
+  <section id="services" style="max-width:800px; margin: 4rem auto; padding: 0 1rem;">
+    <h2>Услуги</h2>
+    <ul>
+      <li>2D анимация (от $800 за минуту)</li>
+      <li>3D анимация (от $1500 за минуту)</li>
+      <li>Моушн-дизайн для соцсетей (от $300 за ролик)</li>
+      <li>Рекламные ролики под ключ (от $2000)</li>
+    </ul>
+  </section>
+
+  <section id="contact" style="max-width:600px; margin: 4rem auto; padding: 0 1rem;">
+    <h2>Связаться с нами</h2>
+    <form action="https://formspree.io/your-email" method="POST">
+      <input type="text" name="name" placeholder="Ваше имя" required style="width:100%; padding:0.75rem; margin-bottom:1rem; border-radius:6px; border:none;">
+      <input type="email" name="email" placeholder="Email" required style="width:100%; padding:0.75rem; margin-bottom:1rem; border-radius:6px; border:none;">
+      <textarea name="message" placeholder="Опишите проект" rows="5" required style="width:100%; padding:0.75rem; margin-bottom:1rem; border-radius:6px; border:none;"></textarea>
+      <button type="submit" class="btn" style="border:none; cursor:pointer;">Отправить</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 AnimTeam. Все права защищены.
+  </footer>
+
+  <script>
+    // Плавный скролл по якорям
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
