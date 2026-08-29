@@ -143,14 +143,19 @@
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: var(--gold);
-      text-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+      background: linear-gradient(90deg, var(--gold), #fcd34d, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 25px rgba(251, 191, 36, 0.5);
     }
     .hero p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 700px;
       margin: 0 auto;
+      line-height: 1.7;
+      color: #e0e0e0;
     }
 
     .section-title {
@@ -212,9 +217,9 @@
       to { opacity: 1; }
     }
 
-    /* Адское Наследие - красные и бордовые */
+    /* Адское Наследие - насыщенные бордовые и красные */
     .project-thl .project-thumb {
-      background: linear-gradient(135deg, #7f1d1d, #b91c1c, #ef4444, #991b1b);
+      background: linear-gradient(135deg, #5c0f0f, #7f1d1d, #b91c1c, #ef4444, #991b1b);
       position: relative;
     }
     .project-thl .project-thumb::before {
@@ -222,8 +227,8 @@
       position: absolute;
       inset: 0;
       background: 
-        radial-gradient(circle at 30% 40%, rgba(239, 68, 68, 0.5), transparent 50%),
-        radial-gradient(circle at 70% 60%, rgba(127, 29, 29, 0.6), transparent 50%);
+        radial-gradient(circle at 30% 40%, rgba(239, 68, 68, 0.6), transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(127, 29, 29, 0.7), transparent 50%);
     }
 
     .project-thumb {
@@ -247,13 +252,38 @@
     }
     .project-info h3 {
       margin: 0 0 0.5rem;
-      color: var(--gold);
       font-size: 1.5rem;
     }
     .project-info p {
-      opacity: 0.85;
-      line-height: 1.6;
+      opacity: 0.9;
+      line-height: 1.7;
+      font-size: 1rem;
     }
+
+    /* Retry - голубо-розовый текст */
+    .project-retry .project-info h3 {
+      background: linear-gradient(90deg, #22d3ee, #67e8f9, #f472b6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+    }
+    .project-retry .project-info p {
+      color: #a5f3fc;
+    }
+
+    /* Адское Наследие - красно-бордовый текст */
+    .project-thl .project-info h3 {
+      background: linear-gradient(90deg, #ef4444, #f87171, #b91c1c, #7f1d1d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    }
+    .project-thl .project-info p {
+      color: #fecaca;
+    }
+
     .project-tags {
       display: flex;
       gap: 0.5rem;
@@ -263,24 +293,37 @@
 
     /* Retry tags - голубые и розовые */
     .project-retry .tag {
-      background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(244, 114, 182, 0.2));
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.25), rgba(244, 114, 182, 0.25));
       color: #67e8f9;
       padding: 0.35rem 0.85rem;
       border-radius: 20px;
       font-size: 0.85rem;
-      border: 1px solid rgba(34, 211, 238, 0.4);
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+      border: 1px solid rgba(34, 211, 238, 0.5);
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.35);
     }
 
     /* Адское Наследие tags - красные и бордовые */
     .project-thl .tag {
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(127, 29, 29, 0.3));
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(127, 29, 29, 0.4));
       color: #fca5a5;
       padding: 0.35rem 0.85rem;
       border-radius: 20px;
       font-size: 0.85rem;
-      border: 1px solid rgba(239, 68, 68, 0.4);
-      box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+
+    /* О команде */
+    .about-text {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 1.15rem;
+      padding: 0 1rem;
+    }
+    .about-text p {
+      color: #e5e5e5;
     }
 
     /* Форма контактов */
@@ -387,8 +430,7 @@
   <div class="container">
     <!-- Главная секция -->
     <section id="home" class="hero">
-      <h1>Создаём анимацию с характером</h1>
-      <p>Профессиональная 2D/3D анимация, моушн-дизайн и визуальные эффекты для проектов любого масштаба</p>
+      <h1>Мы е#@нутые на всю голову добрые и мирные создатели со слабым мозгом, хорошим сюжетом, шибанутой атмосферой и выдержанным стилем наших вселенных.</h1>
     </section>
 
     <!-- Портфолио -->
@@ -432,11 +474,8 @@
     <!-- О команде -->
     <section id="about" style="margin-top: 4rem;">
       <h2 class="section-title">О команде</h2>
-      <div style="max-width: 700px; margin: 0 auto; text-align: center; line-height: 1.8;">
-        <p style="font-size: 1.1rem;">
-          Мы — <strong style="color: var(--gold);">Deemonz</strong>, команда passionate аниматоров, режиссёров и художников. 
-          Создаём уникальные визуальные истории с 2020 года, сочетая классические техники анимации с современными технологиями.
-        </p>
+      <div class="about-text">
+        <p>Мы - те самые ебанько с добрым сердцем и кривыми руками, из которых, однако, выходит адово красиво. Поэтому, возможно и ты нам с чем-то поможешь!</p>
       </div>
     </section>
 
