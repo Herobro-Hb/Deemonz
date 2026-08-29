@@ -31,7 +31,7 @@
       min-height: 100vh;
     }
 
-    /* Баннер с fon.png (без бликов) */
+    /* Баннер с fon.png (без бликов, без текста) */
     .channel-banner {
       width: 100%;
       height: 220px;
@@ -321,12 +321,24 @@
 
     /* Форма контактов */
     .contact-form {
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
       background: var(--card-bg);
-      padding: 2rem;
+      padding: 2.5rem;
       border-radius: 12px;
       border: 1px solid rgba(124, 58, 237, 0.4);
+    }
+    .form-title {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .form-subtitle {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
     }
     .form-group {
       margin-bottom: 1.25rem;
@@ -338,6 +350,7 @@
       font-weight: 600;
     }
     .form-group input,
+    .form-group select,
     .form-group textarea {
       width: 100%;
       padding: 0.875rem;
@@ -349,10 +362,19 @@
       transition: border-color 0.3s;
     }
     .form-group input:focus,
+    .form-group select:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: var(--gold);
       box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+    }
+    .form-group select {
+      cursor: pointer;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
     .submit-btn {
       width: 100%;
@@ -367,6 +389,7 @@
       transition: all 0.3s;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-top: 0.5rem;
     }
     .submit-btn:hover {
       background: linear-gradient(90deg, #8b5cf6, var(--purple));
@@ -393,17 +416,14 @@
       }
       .hero h1 { font-size: 1.8rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Баннер с fon.png (без бликов) -->
+  <!-- Баннер с fon.png (без текста) -->
   <div class="channel-banner">
-    <div style="text-align:center; position:relative; z-index:1;">
-      <div style="font-size:1.3rem; opacity:0.95; letter-spacing:4px; text-transform:uppercase; color: var(--gold); text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);">
-        Анимационная студия
-      </div>
-    </div>
   </div>
 
   <!-- Логотип по центру -->
@@ -441,8 +461,10 @@
             <p>Динамичный анимационный проект с элементами научной фантастики и драматическим сюжетом.</p>
             <div class="project-tags">
               <span class="tag">2D Анимация</span>
-              <span class="tag">Sci-Fi</span>
-              <span class="tag">Сериал</span>
+              <span class="tag">Цифровой Хоррор</span>
+              <span class="tag">Мультсериал</span>
+              <span class="tag">Абсурдный</span>
+              <span class="tag">Чёрный Юмор</span>
             </div>
           </div>
         </div>
@@ -456,9 +478,11 @@
             <h3>Адское Наследие</h3>
             <p>Мрачный анимационный проект в жанре тёмного фэнтези с глубоким сюжетом и проработанными персонажами.</p>
             <div class="project-tags">
-              <span class="tag">2D/3D</span>
-              <span class="tag">Dark Fantasy</span>
-              <span class="tag">Сериал</span>
+              <span class="tag">2D Анимация</span>
+              <span class="tag">Мультсериал</span>
+              <span class="tag">Обширный Лор</span>
+              <span class="tag">Абсурдный</span>
+              <span class="tag">Чёрный Юмор</span>
             </div>
           </div>
         </div>
@@ -473,22 +497,57 @@
       </div>
     </section>
 
-    <!-- Контакты -->
+    <!-- Контакты - форма подачи заявки -->
     <section id="contact" style="margin-top: 4rem;">
       <h2 class="section-title">Связаться с нами</h2>
-      <form class="contact-form" action="https://formspree.io/your-email" method="POST">
-        <div class="form-group">
-          <label for="name">Ваше имя</label>
-          <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?">
+      <form class="contact-form" action="https://formsubmit.co/ВАША_ПОЧТА" method="POST">
+        <h3 class="form-title">Заявка на работу</h3>
+        <p class="form-subtitle">Заполни форму и стань частью команды Deemonz</p>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Имя / Никнейм</label>
+            <input type="text" id="name" name="name" required placeholder="Как к тебе обращаться?">
+          </div>
+          <div class="form-group">
+            <label for="age">Возраст</label>
+            <input type="number" id="age" name="age" placeholder="Сколько лет?">
+          </div>
         </div>
+
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="example@mail.com">
+          <label for="email">Email / Discord</label>
+          <input type="text" id="email" name="email" required placeholder="example@mail.com или nickname#1234">
         </div>
+
         <div class="form-group">
-          <label for="message">О проекте</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Расскажите о вашем проекте..."></textarea>
+          <label for="role">На какую позицию?</label>
+          <select id="role" name="role" required>
+            <option value="" disabled selected>Выбери роль</option>
+            <option value="animator">Аниматор (2D)</option>
+            <option value="artist">Художник / Иллюстратор</option>
+            <option value="director">Режиссёр / Сценарист</option>
+            <option value="sound">Звукорежиссёр / Композитор</option>
+            <option value="editor">Монтажёр</option>
+            <option value="other">Другое</option>
+          </select>
         </div>
+
+        <div class="form-group">
+          <label for="portfolio">Портфолио / Примеры работ</label>
+          <input type="text" id="portfolio" name="portfolio" placeholder="Ссылка на портфолио, YouTube, ArtStation и т.д.">
+        </div>
+
+        <div class="form-group">
+          <label for="message">О себе</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Расскажи о своём опыте, навыках и почему хочешь к нам..."></textarea>
+        </div>
+
+        <!-- Скрытые поля для Formsubmit -->
+        <input type="hidden" name="_subject" value="Новая заявка на работу - Deemonz">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
         <button type="submit" class="submit-btn">Отправить заявку</button>
       </form>
     </section>
