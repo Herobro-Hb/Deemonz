@@ -31,7 +31,7 @@
       min-height: 100vh;
     }
 
-    /* Баннер с fon.png (без бликов, без текста) */
+    /* Баннер с fon.png (без текста) */
     .channel-banner {
       width: 100%;
       height: 220px;
@@ -341,16 +341,16 @@
       font-size: 0.95rem;
     }
     .form-group {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
     .form-group label {
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
       color: var(--gold);
       font-weight: 600;
+      font-size: 1.05rem;
     }
     .form-group input,
-    .form-group select,
     .form-group textarea {
       width: 100%;
       padding: 0.875rem;
@@ -362,19 +362,14 @@
       transition: border-color 0.3s;
     }
     .form-group input:focus,
-    .form-group select:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: var(--gold);
       box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
     }
-    .form-group select {
-      cursor: pointer;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
     }
     .submit-btn {
       width: 100%;
@@ -416,7 +411,6 @@
       }
       .hero h1 { font-size: 1.8rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
       .contact-form { padding: 1.5rem; }
     }
   </style>
@@ -465,6 +459,8 @@
               <span class="tag">Мультсериал</span>
               <span class="tag">Абсурдный</span>
               <span class="tag">Чёрный Юмор</span>
+              <span class="tag">Драма</span>
+              <span class="tag">Эпик</span>
             </div>
           </div>
         </div>
@@ -479,10 +475,15 @@
             <p>Мрачный анимационный проект в жанре тёмного фэнтези с глубоким сюжетом и проработанными персонажами.</p>
             <div class="project-tags">
               <span class="tag">2D Анимация</span>
+              <span class="tag">Тёмное Фэнтези</span>
               <span class="tag">Мультсериал</span>
               <span class="tag">Обширный Лор</span>
               <span class="tag">Абсурдный</span>
               <span class="tag">Чёрный Юмор</span>
+              <span class="tag">Путешествия</span>
+              <span class="tag">Повседневность</span>
+              <span class="tag">Драма</span>
+              <span class="tag">Эпик</span>
             </div>
           </div>
         </div>
@@ -504,43 +505,24 @@
         <h3 class="form-title">Заявка на работу</h3>
         <p class="form-subtitle">Заполни форму и стань частью команды Deemonz</p>
         
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Имя / Никнейм</label>
-            <input type="text" id="name" name="name" required placeholder="Как к тебе обращаться?">
-          </div>
-          <div class="form-group">
-            <label for="age">Возраст</label>
-            <input type="number" id="age" name="age" placeholder="Сколько лет?">
-          </div>
+        <div class="form-group">
+          <label for="about">Расскажите о себе</label>
+          <textarea id="about" name="about" rows="4" required placeholder="Как вас зовут (или псевдоним)? Почему вы решили податься к нам?"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="email">Email / Discord</label>
-          <input type="text" id="email" name="email" required placeholder="example@mail.com или nickname#1234">
+          <label for="role">Кем бы вы хотели стать?</label>
+          <textarea id="role" name="role" rows="3" required placeholder="Даже если вы хотите помочь, но не знаете чем — всё равно подавайте, любые руки — руки."></textarea>
         </div>
 
         <div class="form-group">
-          <label for="role">На какую позицию?</label>
-          <select id="role" name="role" required>
-            <option value="" disabled selected>Выбери роль</option>
-            <option value="animator">Аниматор (2D)</option>
-            <option value="artist">Художник / Иллюстратор</option>
-            <option value="director">Режиссёр / Сценарист</option>
-            <option value="sound">Звукорежиссёр / Композитор</option>
-            <option value="editor">Монтажёр</option>
-            <option value="other">Другое</option>
-          </select>
+          <label for="portfolio">Портфолио</label>
+          <input type="text" id="portfolio" name="portfolio" placeholder="Если есть примеры работ, то укажите ссылку, а если нет ссылки, то напишите факт существования работ — в звонке проверим.">
         </div>
 
         <div class="form-group">
-          <label for="portfolio">Портфолио / Примеры работ</label>
-          <input type="text" id="portfolio" name="portfolio" placeholder="Ссылка на портфолио, YouTube, ArtStation и т.д.">
-        </div>
-
-        <div class="form-group">
-          <label for="message">О себе</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Расскажи о своём опыте, навыках и почему хочешь к нам..."></textarea>
+          <label for="discord">Оставьте свой ДС юзернейм</label>
+          <input type="text" id="discord" name="discord" required placeholder="Для связи с вами в любом из случаев после рассмотрения анкеты.">
         </div>
 
         <!-- Скрытые поля для Formsubmit -->
