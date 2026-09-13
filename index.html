@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Deemonz — Анимационная команда</title>
-  <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #000000;
@@ -90,15 +90,14 @@
     nav a {
       color: var(--text);
       text-decoration: none;
-      font-family: 'Ruslan Display', cursive;
-      font-weight: 400;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       padding: 0.6rem 1.25rem;
       border-radius: 8px;
       transition: all 0.3s;
       position: relative;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
     nav a:hover {
       color: var(--gold);
@@ -163,7 +162,8 @@
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      font-family: 'Ruslan Display', cursive;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
       background: linear-gradient(90deg, var(--gold), #fcd34d, var(--gold));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -212,7 +212,8 @@
       margin-bottom: 2rem;
       color: var(--gold);
       position: relative;
-      font-family: 'Ruslan Display', cursive;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
       letter-spacing: 1px;
     }
     .section-title::after {
@@ -302,7 +303,8 @@
     .project-info h3 {
       margin: 0 0 0.5rem;
       font-size: 1.5rem;
-      font-family: 'Ruslan Display', cursive;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
     }
     .project-info p {
       opacity: 0.9;
@@ -670,7 +672,6 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js';
     import { getDatabase, ref, onValue, update, get, child } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js';
 
-    // Первый проект (Retry)
     const firebaseConfigRetry = {
       apiKey: "AIzaSyAXVRbQHNQAQXMOzuwzPUBlS6bb2NNQuvc",
       authDomain: "coconut-54663.firebaseapp.com",
@@ -682,7 +683,6 @@
       measurementId: "G-ZG32SDYX8T"
     };
 
-    // Второй проект (Адское Наследие)
     const firebaseConfigTHL = {
       apiKey: "AIzaSyBSRUsnrFgb06t-ZJL9vRtAsJTcWDiIROU",
       authDomain: "cocojut.firebaseapp.com",
@@ -705,7 +705,6 @@
     }
 
     function loadVotes() {
-      // Retry голоса
       const votesRefRetry = ref(dbRetry, `votes/retry`);
       onValue(votesRefRetry, (snapshot) => {
         const data = snapshot.val() || { likes: 0, dislikes: 0 };
@@ -719,7 +718,6 @@
         if (dislikeBtn && hasVoted('retry', 'dislike')) dislikeBtn.classList.add('voted');
       });
 
-      // Адское Наследие голоса
       const votesRefTHL = ref(dbTHL, `votes/thl`);
       onValue(votesRefTHL, (snapshot) => {
         const data = snapshot.val() || { likes: 0, dislikes: 0 };
