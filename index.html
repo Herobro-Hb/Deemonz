@@ -18,7 +18,8 @@
       --pink: #f472b6;
       --red: #ef4444;
       --burgundy: #7f1d1d;
-      --fire: #f97316;
+      --fire: #22c55e;
+      --fire-dark: #16a34a;
       --cross: #ef4444;
     }
 
@@ -381,20 +382,18 @@
       transform: translateY(-2px);
     }
     .vote-btn.fire {
-      background: rgba(249, 115, 22, 0.15);
-      border: 1px solid rgba(249, 115, 22, 0.4);
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
     }
     .vote-btn.fire:hover {
-      background: rgba(249, 115, 22, 0.3);
-      box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+      background: rgba(34, 197, 94, 0.2);
     }
     .vote-btn.cross {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
     }
     .vote-btn.cross:hover {
-      background: rgba(239, 68, 68, 0.3);
-      box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.2);
     }
     .vote-count {
       font-size: 1.1rem;
@@ -409,10 +408,12 @@
     .vote-btn.fire.voted {
       background: var(--fire);
       color: #000;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
     }
     .vote-btn.cross.voted {
       background: var(--cross);
       color: #fff;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
     }
 
     .about-section {
@@ -669,7 +670,6 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js';
     import { getDatabase, ref, onValue, update, get, child } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js';
 
-    // 🔥 ВСТАВЬ СЮДА ОБА FIREBASE CONFIG 🔥
     // Первый проект (Retry)
     const firebaseConfigRetry = {
       apiKey: "AIzaSyAXVRbQHNQAQXMOzuwzPUBlS6bb2NNQuvc",
@@ -682,15 +682,15 @@
       measurementId: "G-ZG32SDYX8T"
     };
 
-    // Второй проект (Адское Наследие) - пока пустой, жду твой конфиг
+    // Второй проект (Адское Наследие)
     const firebaseConfigTHL = {
-      apiKey: "ВСТАВЬ_СЮДА",
-      authDomain: "ВСТАВЬ_СЮДА",
-      databaseURL: "ВСТАВЬ_СЮДА",
-      projectId: "ВСТАВЬ_СЮДА",
-      storageBucket: "ВСТАВЬ_СЮДА",
-      messagingSenderId: "ВСТАВЬ_СЮДА",
-      appId: "ВСТАВЬ_СЮДА"
+      apiKey: "AIzaSyBSRUsnrFgb06t-ZJL9vRtAsJTcWDiIROU",
+      authDomain: "cocojut.firebaseapp.com",
+      projectId: "cocojut",
+      storageBucket: "cocojut.firebasestorage.app",
+      messagingSenderId: "182444012603",
+      appId: "1:182444012603:web:de24839fee50172eb2d81e",
+      measurementId: "G-HGS54B8FXT"
     };
 
     const appRetry = initializeApp(firebaseConfigRetry, 'retry-app');
