@@ -297,7 +297,6 @@
       box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
     }
 
-    /* Кнопки лайк/дизлайк */
     .vote-container {
       display: flex;
       gap: 1rem;
@@ -368,76 +367,52 @@
       color: #e5e5e5;
     }
 
-    .contact-form {
-      max-width: 650px;
+    /* Контакты */
+    .contact-section {
+      max-width: 600px;
       margin: 0 auto;
+      text-align: center;
+      padding: 2rem;
       background: var(--card-bg);
-      padding: 2.5rem;
       border-radius: 12px;
       border: 1px solid rgba(124, 58, 237, 0.4);
     }
-    .form-title {
-      text-align: center;
-      color: var(--gold);
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .form-subtitle {
-      text-align: center;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 2rem;
-      font-size: 0.95rem;
-    }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 0.6rem;
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.875rem;
-      background: rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(124, 58, 237, 0.5);
-      border-radius: 8px;
-      color: var(--text);
-      font-size: 1rem;
-      transition: border-color 0.3s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
-    }
-    .form-group textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .submit-btn {
-      width: 100%;
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
       padding: 1rem;
-      background: linear-gradient(90deg, var(--purple), #8b5cf6);
-      color: #fff;
-      border: none;
+      background: rgba(124, 58, 237, 0.1);
       border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
+      border: 1px solid rgba(124, 58, 237, 0.3);
       transition: all 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.5rem;
     }
-    .submit-btn:hover {
-      background: linear-gradient(90deg, #8b5cf6, var(--purple));
-      box-shadow: 0 0 35px rgba(124, 58, 237, 0.6);
+    .contact-item:hover {
+      background: rgba(124, 58, 237, 0.2);
       transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+    }
+    .contact-icon {
+      font-size: 2rem;
+    }
+    .contact-link {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    .contact-link:hover {
+      color: #fcd34d;
+      text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    }
+    .contact-label {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 0.25rem;
     }
 
     footer {
@@ -458,7 +433,6 @@
       }
       .hero h1 { font-size: 1.8rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
-      .contact-form { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -554,38 +528,30 @@
       </div>
     </section>
 
+    <!-- Контакты -->
     <section id="contact" style="margin-top: 4rem;">
       <h2 class="section-title">Связаться с нами</h2>
-      <form class="contact-form" action="https://formsubmit.co/ВАША_ПОЧТА" method="POST">
-        <h3 class="form-title">Заявка на работу</h3>
-        <p class="form-subtitle">Заполни форму и стань частью команды Deemonz</p>
-        
-        <div class="form-group">
-          <label for="about">Расскажите о себе</label>
-          <textarea id="about" name="about" rows="4" required placeholder="Как вас зовут (или псевдоним)? Почему вы решили податься к нам?"></textarea>
+      <div class="contact-section">
+        <p style="font-size: 1.1rem; opacity: 0.9;">
+          Хочешь связаться с нами? Пиши в Discord или на почту — всегда рады новым людям!
+        </p>
+
+        <div class="contact-item">
+          <span class="contact-icon">🎮</span>
+          <div>
+            <span class="contact-label">Discord</span>
+            <a href="https://discord.com/users/writkich" class="contact-link" target="_blank">@writkich</a>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="role">Кем бы вы хотели стать?</label>
-          <textarea id="role" name="role" rows="3" required placeholder="Даже если вы хотите помочь, но не знаете чем — всё равно подавайте, любые руки — руки."></textarea>
+        <div class="contact-item">
+          <span class="contact-icon">📧</span>
+          <div>
+            <span class="contact-label">Email</span>
+            <a href="mailto:fillleryt@gmail.com" class="contact-link">fillleryt@gmail.com</a>
+          </div>
         </div>
-
-        <div class="form-group">
-          <label for="portfolio">Портфолио</label>
-          <input type="text" id="portfolio" name="portfolio" placeholder="Если есть примеры работ, то укажите ссылку, а если нет ссылки, то напишите факт существования работ — в звонке проверим.">
-        </div>
-
-        <div class="form-group">
-          <label for="discord">Оставьте свой ДС юзернейм</label>
-          <input type="text" id="discord" name="discord" required placeholder="Для связи с вами в любом из случаев после рассмотрения анкеты.">
-        </div>
-
-        <input type="hidden" name="_subject" value="Новая заявка на работу - Deemonz">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-
-        <button type="submit" class="submit-btn">Отправить заявку</button>
-      </form>
+      </div>
     </section>
   </div>
 
@@ -601,7 +567,6 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js';
     import { getDatabase, ref, onValue, update, get, child } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js';
 
-    // Твой Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyAXVRbQHNQAQXMOzuwzPUBlS6bb2NNQuvc",
       authDomain: "coconut-54663.firebaseapp.com",
@@ -613,28 +578,23 @@
       measurementId: "G-ZG32SDYX8T"
     };
 
-    // Инициализация Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    // Проверка, голосовал ли пользователь
     function hasVoted(project, type) {
       const voted = localStorage.getItem(`voted_${project}_${type}`);
       return voted === 'true';
     }
 
-    // Загрузка голосов
     function loadVotes() {
       ['retry', 'thl'].forEach(project => {
         const votesRef = ref(db, `votes/${project}`);
         onValue(votesRef, (snapshot) => {
           const data = snapshot.val() || { likes: 0, dislikes: 0 };
           
-          // Обновляем счётчики
           document.querySelector(`[data-project="${project}"][data-type="like"] .vote-count`).textContent = data.likes || 0;
           document.querySelector(`[data-project="${project}"][data-type="dislike"] .vote-count`).textContent = data.dislikes || 0;
 
-          // Восстанавливаем состояние кнопок
           const likeBtn = document.querySelector(`[data-project="${project}"][data-type="like"]`);
           const dislikeBtn = document.querySelector(`[data-project="${project}"][data-type="dislike"]`);
           
@@ -648,24 +608,20 @@
       });
     }
 
-    // Обработка кликов
     document.querySelectorAll('.vote-btn').forEach(btn => {
       btn.addEventListener('click', async () => {
         const project = btn.dataset.project;
         const type = btn.dataset.type;
 
-        // Проверка: уже голосовал?
         if (hasVoted(project, type)) {
           alert('Вы уже голосовали за этот проект!');
           return;
         }
 
-        // Получаем текущие голоса
         const votesRef = ref(db, `votes/${project}`);
         const snapshot = await get(child(votesRef, '/'));
         const data = snapshot.val() || { likes: 0, dislikes: 0 };
 
-        // Увеличиваем счётчик
         const updateData = {};
         if (type === 'like') {
           updateData.likes = (data.likes || 0) + 1;
@@ -675,13 +631,11 @@
 
         await update(votesRef, updateData);
 
-        // Помечаем, что пользователь проголосовал
         localStorage.setItem(`voted_${project}_${type}`, 'true');
         btn.classList.add('voted');
       });
     });
 
-    // Загружаем голоса при старте
     loadVotes();
   </script>
 
