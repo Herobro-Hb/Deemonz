@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Deemonz — Анимационная команда</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #000000;
@@ -161,8 +161,7 @@
     .hero h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
+      font-family: 'Ruslan Display', cursive;
       background: linear-gradient(90deg, var(--gold), #fcd34d, var(--gold));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -211,8 +210,7 @@
       margin-bottom: 2rem;
       color: var(--gold);
       position: relative;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
+      font-family: 'Ruslan Display', cursive;
       letter-spacing: 1px;
     }
     .section-title::after {
@@ -302,8 +300,7 @@
     .project-info h3 {
       margin: 0 0 0.5rem;
       font-size: 1.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
+      font-family: 'Ruslan Display', cursive;
     }
     .project-info p {
       opacity: 0.9;
@@ -683,6 +680,7 @@
     const firebaseConfigTHL = {
       apiKey: "AIzaSyBSRUsnrFgb06t-ZJL9vRtAsJTcWDiIROU",
       authDomain: "cocojut.firebaseapp.com",
+      databaseURL: "https://cocojut-default-rtdb.firebaseio.com",
       projectId: "cocojut",
       storageBucket: "cocojut.firebasestorage.app",
       messagingSenderId: "182444012603",
@@ -702,11 +700,14 @@
     }
 
     function loadVotes() {
+      // Retry
       const votesRefRetry = ref(dbRetry, `votes/retry`);
       onValue(votesRefRetry, (snapshot) => {
         const data = snapshot.val() || { likes: 0, dislikes: 0 };
-        document.querySelector(`[data-project="retry"][data-type="like"] .vote-count`).textContent = data.likes || 0;
-        document.querySelector(`[data-project="retry"][data-type="dislike"] .vote-count`).textContent = data.dislikes || 0;
+        const retryLikeBtn = document.querySelector(`[data-project="retry"][data-type="like"] .vote-count`);
+        const retryDislikeBtn = document.querySelector(`[data-project="retry"][data-type="dislike"] .vote-count`);
+        if (retryLikeBtn) retryLikeBtn.textContent = data.likes || 0;
+        if (retryDislikeBtn) retryDislikeBtn.textContent = data.dislikes || 0;
 
         const likeBtn = document.querySelector(`[data-project="retry"][data-type="like"]`);
         const dislikeBtn = document.querySelector(`[data-project="retry"][data-type="dislike"]`);
@@ -715,11 +716,14 @@
         if (dislikeBtn && hasVoted('retry', 'dislike')) dislikeBtn.classList.add('voted');
       });
 
+      // Адское Наследие
       const votesRefTHL = ref(dbTHL, `votes/thl`);
       onValue(votesRefTHL, (snapshot) => {
         const data = snapshot.val() || { likes: 0, dislikes: 0 };
-        document.querySelector(`[data-project="thl"][data-type="like"] .vote-count`).textContent = data.likes || 0;
-        document.querySelector(`[data-project="thl"][data-type="dislike"] .vote-count`).textContent = data.dislikes || 0;
+        const thlLikeBtn = document.querySelector(`[data-project="thl"][data-type="like"] .vote-count`);
+        const thlDislikeBtn = document.querySelector(`[data-project="thl"][data-type="dislike"] .vote-count`);
+        if (thlLikeBtn) thlLikeBtn.textContent = data.likes || 0;
+        if (thlDislikeBtn) thlDislikeBtn.textContent = data.dislikes || 0;
 
         const likeBtn = document.querySelector(`[data-project="thl"][data-type="like"]`);
         const dislikeBtn = document.querySelector(`[data-project="thl"][data-type="dislike"]`);
