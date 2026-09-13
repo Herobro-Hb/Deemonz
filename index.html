@@ -17,8 +17,8 @@
       --pink: #f472b6;
       --red: #ef4444;
       --burgundy: #7f1d1d;
-      --like: #10b981;
-      --dislike: #ef4444;
+      --fire: #f97316;
+      --cross: #ef4444;
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +28,7 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: 
         linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)),
-        url('border.png') center/cover no-repeat fixed;
+        #000;
       color: var(--text);
       min-height: 100vh;
     }
@@ -120,16 +120,46 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 3rem 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
+    /* Hero с pin1 и pin2 */
+    .hero-section {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+    .hero-section::before,
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 300px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+      opacity: 0.8;
+    }
+    .hero-section::before {
+      left: -220px;
+      background-image: url('pin1.png');
+    }
+    .hero-section::after {
+      right: -220px;
+      background-image: url('pin2.png');
+    }
     .hero {
       text-align: center;
       padding: 4rem 1rem;
       background: rgba(10, 10, 15, 0.7);
       border-radius: 16px;
       border: 1px solid rgba(124, 58, 237, 0.4);
-      margin-bottom: 3rem;
       box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
+      position: relative;
+      z-index: 1;
     }
     .hero h1 {
       font-size: 2.5rem;
@@ -147,6 +177,34 @@
       margin: 0 auto;
       line-height: 1.7;
       color: #e0e0e0;
+    }
+
+    /* Фон с pin3 и pin4 */
+    .projects-background {
+      position: relative;
+      margin-top: 2rem;
+    }
+    .projects-background::before,
+    .projects-background::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .projects-background::before {
+      left: -270px;
+      background-image: url('pin3.png');
+    }
+    .projects-background::after {
+      right: -270px;
+      background-image: url('pin4.png');
     }
 
     .section-title {
@@ -171,6 +229,8 @@
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 2.5rem;
       margin-top: 2rem;
+      position: relative;
+      z-index: 1;
     }
     .project-card {
       background: var(--card-bg);
@@ -297,6 +357,7 @@
       box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
     }
 
+    /* Кнопки огонёк и крестик */
     .vote-container {
       display: flex;
       gap: 1rem;
@@ -311,7 +372,7 @@
       padding: 0.6rem 1.2rem;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s;
@@ -321,19 +382,19 @@
     .vote-btn:hover {
       transform: translateY(-2px);
     }
-    .vote-btn.like {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.4);
+    .vote-btn.fire {
+      background: rgba(249, 115, 22, 0.15);
+      border: 1px solid rgba(249, 115, 22, 0.4);
     }
-    .vote-btn.like:hover {
-      background: rgba(16, 185, 129, 0.3);
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    .vote-btn.fire:hover {
+      background: rgba(249, 115, 22, 0.3);
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
     }
-    .vote-btn.dislike {
+    .vote-btn.cross {
       background: rgba(239, 68, 68, 0.15);
       border: 1px solid rgba(239, 68, 68, 0.4);
     }
-    .vote-btn.dislike:hover {
+    .vote-btn.cross:hover {
       background: rgba(239, 68, 68, 0.3);
       box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
     }
@@ -342,19 +403,47 @@
       font-weight: 700;
       min-width: 24px;
       text-align: center;
+      font-family: 'Inter', sans-serif;
     }
     .vote-btn.voted {
       transform: scale(1.05);
     }
-    .vote-btn.like.voted {
-      background: var(--like);
+    .vote-btn.fire.voted {
+      background: var(--fire);
       color: #000;
     }
-    .vote-btn.dislike.voted {
-      background: var(--dislike);
+    .vote-btn.cross.voted {
+      background: var(--cross);
       color: #fff;
     }
 
+    /* О команде с pin5 и pin6 */
+    .about-section {
+      position: relative;
+      margin-top: 4rem;
+    }
+    .about-section::before,
+    .about-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 250px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+      opacity: 0.7;
+    }
+    .about-section::before {
+      left: -220px;
+      background-image: url('pin5.png');
+    }
+    .about-section::after {
+      right: -220px;
+      background-image: url('pin6.png');
+    }
     .about-text {
       max-width: 750px;
       margin: 0 auto;
@@ -362,9 +451,16 @@
       line-height: 1.8;
       font-size: 1.15rem;
       padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+      background: rgba(10, 10, 15, 0.6);
+      border-radius: 12px;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      padding: 2rem;
     }
     .about-text p {
       color: #e5e5e5;
+      margin: 0;
     }
 
     /* Контакты */
@@ -376,6 +472,8 @@
       background: var(--card-bg);
       border-radius: 12px;
       border: 1px solid rgba(124, 58, 237, 0.4);
+      position: relative;
+      z-index: 1;
     }
     .contact-item {
       display: flex;
@@ -408,12 +506,6 @@
       color: #fcd34d;
       text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
     }
-    .contact-label {
-      display: block;
-      font-size: 0.9rem;
-      opacity: 0.7;
-      margin-bottom: 0.25rem;
-    }
 
     footer {
       text-align: center;
@@ -421,6 +513,8 @@
       margin-top: 4rem;
       border-top: 1px solid rgba(124, 58, 237, 0.4);
       color: rgba(255, 255, 255, 0.7);
+      position: relative;
+      z-index: 1;
     }
 
     @media (max-width: 768px) {
@@ -433,6 +527,14 @@
       }
       .hero h1 { font-size: 1.8rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
+      .hero-section::before,
+      .hero-section::after,
+      .projects-background::before,
+      .projects-background::after,
+      .about-section::before,
+      .about-section::after {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -452,81 +554,90 @@
   </nav>
 
   <div class="container">
-    <section id="home" class="hero">
-      <h1>Создаём анимацию с характером</h1>
-      <p>Мы е#@нутые на всю голову добрые и мирные создатели со слабым мозгом, хорошим сюжетом, шибанутой атмосферой и выдержанным стилем наших вселенных.</p>
-    </section>
+    <!-- Hero с pin1 и pin2 -->
+    <div class="hero-section">
+      <section id="home" class="hero">
+        <h1>Создаём анимацию с характером</h1>
+        <p>Мы е#@нутые на всю голову добрые и мирные создатели со слабым мозгом, хорошим сюжетом, шибанутой атмосферой и выдержанным стилем наших вселенных.</p>
+      </section>
+    </div>
 
-    <section id="portfolio">
-      <h2 class="section-title">Наши работы</h2>
-      <div class="portfolio-grid">
-        <!-- Retry -->
-        <div class="project-card project-retry">
-          <div class="project-thumb">
-            <img src="ret.png" alt="Retry">
-          </div>
-          <div class="project-info">
-            <h3>Retry</h3>
-            <p>Динамичный анимационный проект с элементами научной фантастики и драматическим сюжетом.</p>
-            <div class="project-tags">
-              <span class="tag">2D Анимация</span>
-              <span class="tag">Цифровой Хоррор</span>
-              <span class="tag">Мультсериал</span>
-              <span class="tag">Абсурдный</span>
-              <span class="tag">Чёрный Юмор</span>
-              <span class="tag">Драма</span>
-              <span class="tag">Эпик</span>
+    <!-- Фон с pin3 и pin4 -->
+    <div class="projects-background">
+      <section id="portfolio">
+        <h2 class="section-title">Наши работы</h2>
+        <div class="portfolio-grid">
+          <!-- Retry -->
+          <div class="project-card project-retry">
+            <div class="project-thumb">
+              <img src="ret.png" alt="Retry">
             </div>
-            <div class="vote-container">
-              <button class="vote-btn like" data-project="retry" data-type="like">
-                👍 <span class="vote-count">0</span>
-              </button>
-              <button class="vote-btn dislike" data-project="retry" data-type="dislike">
-                👎 <span class="vote-count">0</span>
-              </button>
+            <div class="project-info">
+              <h3>Retry</h3>
+              <p>Динамичный анимационный проект с элементами научной фантастики и драматическим сюжетом.</p>
+              <div class="project-tags">
+                <span class="tag">2D Анимация</span>
+                <span class="tag">Цифровой Хоррор</span>
+                <span class="tag">Мультсериал</span>
+                <span class="tag">Абсурдный</span>
+                <span class="tag">Чёрный Юмор</span>
+                <span class="tag">Драма</span>
+                <span class="tag">Эпик</span>
+              </div>
+              <div class="vote-container">
+                <button class="vote-btn fire" data-project="retry" data-type="like">
+                  🔥 <span class="vote-count">0</span>
+                </button>
+                <button class="vote-btn cross" data-project="retry" data-type="dislike">
+                  ❌ <span class="vote-count">0</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Адское Наследие -->
+          <div class="project-card project-thl">
+            <div class="project-thumb">
+              <img src="thl.png" alt="Адское Наследие">
+            </div>
+            <div class="project-info">
+              <h3>Адское Наследие</h3>
+              <p>Мрачный анимационный проект в жанре тёмного фэнтези с глубоким сюжетом и проработанными персонажами.</p>
+              <div class="project-tags">
+                <span class="tag">2D Анимация</span>
+                <span class="tag">Тёмное Фэнтези</span>
+                <span class="tag">Мультсериал</span>
+                <span class="tag">Обширный Лор</span>
+                <span class="tag">Абсурдный</span>
+                <span class="tag">Чёрный Юмор</span>
+                <span class="tag">Путешествия</span>
+                <span class="tag">Повседневность</span>
+                <span class="tag">Драма</span>
+                <span class="tag">Эпик</span>
+              </div>
+              <div class="vote-container">
+                <button class="vote-btn fire" data-project="retry" data-type="like">
+                  🔥 <span class="vote-count">0</span>
+                </button>
+                <button class="vote-btn cross" data-project="retry" data-type="dislike">
+                  ❌ <span class="vote-count">0</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+    </div>
 
-        <!-- Адское Наследие -->
-        <div class="project-card project-thl">
-          <div class="project-thumb">
-            <img src="thl.png" alt="Адское Наследие">
-          </div>
-          <div class="project-info">
-            <h3>Адское Наследие</h3>
-            <p>Мрачный анимационный проект в жанре тёмного фэнтези с глубоким сюжетом и проработанными персонажами.</p>
-            <div class="project-tags">
-              <span class="tag">2D Анимация</span>
-              <span class="tag">Тёмное Фэнтези</span>
-              <span class="tag">Мультсериал</span>
-              <span class="tag">Обширный Лор</span>
-              <span class="tag">Абсурдный</span>
-              <span class="tag">Чёрный Юмор</span>
-              <span class="tag">Путешествия</span>
-              <span class="tag">Повседневность</span>
-              <span class="tag">Драма</span>
-              <span class="tag">Эпик</span>
-            </div>
-            <div class="vote-container">
-              <button class="vote-btn like" data-project="thl" data-type="like">
-                👍 <span class="vote-count">0</span>
-              </button>
-              <button class="vote-btn dislike" data-project="thl" data-type="dislike">
-                👎 <span class="vote-count">0</span>
-              </button>
-            </div>
-          </div>
+    <!-- О команде с pin5 и pin6 -->
+    <div class="about-section">
+      <section id="about">
+        <h2 class="section-title">О команде</h2>
+        <div class="about-text">
+          <p>Мы - те самые ебанько с добрым сердцем и кривыми руками, из которых, однако, выходит адово красиво. Поэтому, возможно и ты нам с чем-то поможешь!</p>
         </div>
-      </div>
-    </section>
-
-    <section id="about" style="margin-top: 4rem;">
-      <h2 class="section-title">О команде</h2>
-      <div class="about-text">
-        <p>Мы - те самые ебанько с добрым сердцем и кривыми руками, из которых, однако, выходит адово красиво. Поэтому, возможно и ты нам с чем-то поможешь!</p>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Контакты -->
     <section id="contact" style="margin-top: 4rem;">
@@ -539,7 +650,7 @@
         <div class="contact-item">
           <span class="contact-icon">🎮</span>
           <div>
-            <span class="contact-label">Discord</span>
+            <span class="contact-label" style="display: block; font-size: 0.9rem; opacity: 0.7; margin-bottom: 0.25rem;">Discord</span>
             <a href="https://discord.com/users/writkich" class="contact-link" target="_blank">@writkich</a>
           </div>
         </div>
@@ -547,7 +658,7 @@
         <div class="contact-item">
           <span class="contact-icon">📧</span>
           <div>
-            <span class="contact-label">Email</span>
+            <span class="contact-label" style="display: block; font-size: 0.9rem; opacity: 0.7; margin-bottom: 0.25rem;">Email</span>
             <a href="mailto:fillleryt@gmail.com" class="contact-link">fillleryt@gmail.com</a>
           </div>
         </div>
@@ -598,10 +709,10 @@
           const likeBtn = document.querySelector(`[data-project="${project}"][data-type="like"]`);
           const dislikeBtn = document.querySelector(`[data-project="${project}"][data-type="dislike"]`);
           
-          if (hasVoted(project, 'like')) {
+          if (likeBtn && hasVoted(project, 'like')) {
             likeBtn.classList.add('voted');
           }
-          if (hasVoted(project, 'dislike')) {
+          if (dislikeBtn && hasVoted(project, 'dislike')) {
             dislikeBtn.classList.add('voted');
           }
         });
@@ -618,21 +729,26 @@
           return;
         }
 
-        const votesRef = ref(db, `votes/${project}`);
-        const snapshot = await get(child(votesRef, '/'));
-        const data = snapshot.val() || { likes: 0, dislikes: 0 };
+        try {
+          const votesRef = ref(db, `votes/${project}`);
+          const snapshot = await get(child(votesRef, '/'));
+          const data = snapshot.val() || { likes: 0, dislikes: 0 };
 
-        const updateData = {};
-        if (type === 'like') {
-          updateData.likes = (data.likes || 0) + 1;
-        } else {
-          updateData.dislikes = (data.dislikes || 0) + 1;
+          const updateData = {};
+          if (type === 'like') {
+            updateData.likes = (data.likes || 0) + 1;
+          } else {
+            updateData.dislikes = (data.dislikes || 0) + 1;
+          }
+
+          await update(votesRef, updateData);
+
+          localStorage.setItem(`voted_${project}_${type}`, 'true');
+          btn.classList.add('voted');
+        } catch (error) {
+          console.error('Ошибка голосования:', error);
+          alert('Ошибка при голосовании. Проверь настройки Firebase.');
         }
-
-        await update(votesRef, updateData);
-
-        localStorage.setItem(`voted_${project}_${type}`, 'true');
-        btn.classList.add('voted');
       });
     });
 
