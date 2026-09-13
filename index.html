@@ -17,6 +17,8 @@
       --pink: #f472b6;
       --red: #ef4444;
       --burgundy: #7f1d1d;
+      --like: #10b981;
+      --dislike: #ef4444;
     }
 
     * { box-sizing: border-box; }
@@ -31,7 +33,6 @@
       min-height: 100vh;
     }
 
-    /* Баннер с fon.png (без текста) */
     .channel-banner {
       width: 100%;
       height: 220px;
@@ -46,7 +47,6 @@
       border-bottom: 2px solid var(--purple);
     }
 
-    /* Логотип по центру */
     .logo-container {
       text-align: center;
       margin-top: -70px;
@@ -74,7 +74,6 @@
       letter-spacing: 3px;
     }
 
-    /* Навигация на чёрном фоне */
     nav {
       display: flex;
       justify-content: center;
@@ -117,7 +116,6 @@
     }
     nav a:hover::after { width: 80%; }
 
-    /* Контент */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -168,7 +166,6 @@
       border-radius: 2px;
     }
 
-    /* Портфолио */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -189,7 +186,6 @@
       border-color: var(--gold);
     }
 
-    /* Retry - светло-голубые и розовые цвета со светом */
     .project-retry .project-thumb {
       background: linear-gradient(135deg, #0891b2, #22d3ee, #f472b6, #ec4899);
       position: relative;
@@ -210,7 +206,6 @@
       to { opacity: 1; }
     }
 
-    /* Адское Наследие - насыщенные бордовые и красные */
     .project-thl .project-thumb {
       background: linear-gradient(135deg, #5c0f0f, #7f1d1d, #b91c1c, #ef4444, #991b1b);
       position: relative;
@@ -253,7 +248,6 @@
       font-size: 1rem;
     }
 
-    /* Retry - голубо-розовый текст */
     .project-retry .project-info h3 {
       background: linear-gradient(90deg, #22d3ee, #67e8f9, #f472b6, #ec4899);
       -webkit-background-clip: text;
@@ -265,7 +259,6 @@
       color: #a5f3fc;
     }
 
-    /* Адское Наследие - красно-бордовый текст */
     .project-thl .project-info h3 {
       background: linear-gradient(90deg, #ef4444, #f87171, #b91c1c, #7f1d1d);
       -webkit-background-clip: text;
@@ -284,7 +277,6 @@
       flex-wrap: wrap;
     }
 
-    /* Retry tags - голубые и розовые */
     .project-retry .tag {
       background: linear-gradient(135deg, rgba(34, 211, 238, 0.25), rgba(244, 114, 182, 0.25));
       color: #67e8f9;
@@ -295,7 +287,6 @@
       box-shadow: 0 0 15px rgba(34, 211, 238, 0.35);
     }
 
-    /* Адское Наследие tags - красные и бордовые */
     .project-thl .tag {
       background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(127, 29, 29, 0.4));
       color: #fca5a5;
@@ -306,7 +297,65 @@
       box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
     }
 
-    /* О команде */
+    /* Кнопки лайк/дизлайк */
+    .vote-container {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(124, 58, 237, 0.3);
+    }
+    .vote-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+    }
+    .vote-btn:hover {
+      transform: translateY(-2px);
+    }
+    .vote-btn.like {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .vote-btn.like:hover {
+      background: rgba(16, 185, 129, 0.3);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+    .vote-btn.dislike {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+    .vote-btn.dislike:hover {
+      background: rgba(239, 68, 68, 0.3);
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    }
+    .vote-count {
+      font-size: 1.1rem;
+      font-weight: 700;
+      min-width: 24px;
+      text-align: center;
+    }
+    .vote-btn.voted {
+      transform: scale(1.05);
+    }
+    .vote-btn.like.voted {
+      background: var(--like);
+      color: #000;
+    }
+    .vote-btn.dislike.voted {
+      background: var(--dislike);
+      color: #fff;
+    }
+
     .about-text {
       max-width: 750px;
       margin: 0 auto;
@@ -319,7 +368,6 @@
       color: #e5e5e5;
     }
 
-    /* Форма контактов */
     .contact-form {
       max-width: 650px;
       margin: 0 auto;
@@ -400,7 +448,6 @@
       color: rgba(255, 255, 255, 0.7);
     }
 
-    /* Адаптив */
     @media (max-width: 768px) {
       .channel-banner { height: 160px; }
       .logo { width: 110px; height: 110px; }
@@ -416,17 +463,13 @@
   </style>
 </head>
 <body>
-  <!-- Баннер с fon.png (без текста) -->
-  <div class="channel-banner">
-  </div>
+  <div class="channel-banner"></div>
 
-  <!-- Логотип по центру -->
   <div class="logo-container">
     <img src="deemonz.png" alt="Deemonz Logo" class="logo">
     <div class="team-name">DEEMONZ</div>
   </div>
 
-  <!-- Навигация на чёрном фоне -->
   <nav>
     <a href="#home">Главная</a>
     <a href="#portfolio">Работы</a>
@@ -435,13 +478,11 @@
   </nav>
 
   <div class="container">
-    <!-- Главная секция -->
     <section id="home" class="hero">
       <h1>Создаём анимацию с характером</h1>
       <p>Мы е#@нутые на всю голову добрые и мирные создатели со слабым мозгом, хорошим сюжетом, шибанутой атмосферой и выдержанным стилем наших вселенных.</p>
     </section>
 
-    <!-- Портфолио -->
     <section id="portfolio">
       <h2 class="section-title">Наши работы</h2>
       <div class="portfolio-grid">
@@ -461,6 +502,14 @@
               <span class="tag">Чёрный Юмор</span>
               <span class="tag">Драма</span>
               <span class="tag">Эпик</span>
+            </div>
+            <div class="vote-container">
+              <button class="vote-btn like" data-project="retry" data-type="like">
+                👍 <span class="vote-count">0</span>
+              </button>
+              <button class="vote-btn dislike" data-project="retry" data-type="dislike">
+                👎 <span class="vote-count">0</span>
+              </button>
             </div>
           </div>
         </div>
@@ -485,12 +534,19 @@
               <span class="tag">Драма</span>
               <span class="tag">Эпик</span>
             </div>
+            <div class="vote-container">
+              <button class="vote-btn like" data-project="thl" data-type="like">
+                👍 <span class="vote-count">0</span>
+              </button>
+              <button class="vote-btn dislike" data-project="thl" data-type="dislike">
+                👎 <span class="vote-count">0</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- О команде -->
     <section id="about" style="margin-top: 4rem;">
       <h2 class="section-title">О команде</h2>
       <div class="about-text">
@@ -498,7 +554,6 @@
       </div>
     </section>
 
-    <!-- Контакты - форма подачи заявки -->
     <section id="contact" style="margin-top: 4rem;">
       <h2 class="section-title">Связаться с нами</h2>
       <form class="contact-form" action="https://formsubmit.co/ВАША_ПОЧТА" method="POST">
@@ -525,7 +580,6 @@
           <input type="text" id="discord" name="discord" required placeholder="Для связи с вами в любом из случаев после рассмотрения анкеты.">
         </div>
 
-        <!-- Скрытые поля для Formsubmit -->
         <input type="hidden" name="_subject" value="Новая заявка на работу - Deemonz">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
@@ -542,8 +596,96 @@
     <p>Все права защищены. Создаём анимацию, которая запоминается.</p>
   </footer>
 
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js';
+    import { getDatabase, ref, onValue, update, get, child } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js';
+
+    // Твой Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyAXVRbQHNQAQXMOzuwzPUBlS6bb2NNQuvc",
+      authDomain: "coconut-54663.firebaseapp.com",
+      databaseURL: "https://coconut-54663-default-rtdb.firebaseio.com",
+      projectId: "coconut-54663",
+      storageBucket: "coconut-54663.firebasestorage.app",
+      messagingSenderId: "854954731411",
+      appId: "1:854954731411:web:6508e2d2df5740ade7aa66",
+      measurementId: "G-ZG32SDYX8T"
+    };
+
+    // Инициализация Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Проверка, голосовал ли пользователь
+    function hasVoted(project, type) {
+      const voted = localStorage.getItem(`voted_${project}_${type}`);
+      return voted === 'true';
+    }
+
+    // Загрузка голосов
+    function loadVotes() {
+      ['retry', 'thl'].forEach(project => {
+        const votesRef = ref(db, `votes/${project}`);
+        onValue(votesRef, (snapshot) => {
+          const data = snapshot.val() || { likes: 0, dislikes: 0 };
+          
+          // Обновляем счётчики
+          document.querySelector(`[data-project="${project}"][data-type="like"] .vote-count`).textContent = data.likes || 0;
+          document.querySelector(`[data-project="${project}"][data-type="dislike"] .vote-count`).textContent = data.dislikes || 0;
+
+          // Восстанавливаем состояние кнопок
+          const likeBtn = document.querySelector(`[data-project="${project}"][data-type="like"]`);
+          const dislikeBtn = document.querySelector(`[data-project="${project}"][data-type="dislike"]`);
+          
+          if (hasVoted(project, 'like')) {
+            likeBtn.classList.add('voted');
+          }
+          if (hasVoted(project, 'dislike')) {
+            dislikeBtn.classList.add('voted');
+          }
+        });
+      });
+    }
+
+    // Обработка кликов
+    document.querySelectorAll('.vote-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const project = btn.dataset.project;
+        const type = btn.dataset.type;
+
+        // Проверка: уже голосовал?
+        if (hasVoted(project, type)) {
+          alert('Вы уже голосовали за этот проект!');
+          return;
+        }
+
+        // Получаем текущие голоса
+        const votesRef = ref(db, `votes/${project}`);
+        const snapshot = await get(child(votesRef, '/'));
+        const data = snapshot.val() || { likes: 0, dislikes: 0 };
+
+        // Увеличиваем счётчик
+        const updateData = {};
+        if (type === 'like') {
+          updateData.likes = (data.likes || 0) + 1;
+        } else {
+          updateData.dislikes = (data.dislikes || 0) + 1;
+        }
+
+        await update(votesRef, updateData);
+
+        // Помечаем, что пользователь проголосовал
+        localStorage.setItem(`voted_${project}_${type}`, 'true');
+        btn.classList.add('voted');
+      });
+    });
+
+    // Загружаем голоса при старте
+    loadVotes();
+  </script>
+
   <script>
-    // Плавный скролл
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
