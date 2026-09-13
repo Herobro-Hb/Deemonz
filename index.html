@@ -71,6 +71,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     nav {
@@ -166,6 +167,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
     .hero p {
       font-size: 1.15rem;
@@ -211,6 +213,7 @@
       position: relative;
       font-weight: 800;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
     .section-title::after {
       content: '';
@@ -300,6 +303,7 @@
       margin: 0 0 0.5rem;
       font-size: 1.5rem;
       font-weight: 800;
+      text-transform: uppercase;
     }
     .project-info p {
       opacity: 0.9;
@@ -687,11 +691,14 @@
       measurementId: "G-HGS54B8FXT"
     };
 
+    console.log('Инициализация Firebase...');
     const appRetry = initializeApp(firebaseConfigRetry, 'retry-app');
     const dbRetry = getDatabase(appRetry);
+    console.log('Retry Firebase готов:', dbRetry);
 
     const appTHL = initializeApp(firebaseConfigTHL, 'thl-app');
     const dbTHL = getDatabase(appTHL);
+    console.log('THL Firebase готов:', dbTHL);
 
     function hasVoted(project, type) {
       const voted = localStorage.getItem(`voted_${project}_${type}`);
@@ -699,10 +706,13 @@
     }
 
     function loadVotes() {
-      // Retry - первый Firebase
+      console.log('Загрузка голосов...');
+      
+      // Retry
       const votesRefRetry = ref(dbRetry, `votes/retry`);
       onValue(votesRefRetry, (snapshot) => {
         const data = snapshot.val() || { likes: 0, dislikes: 0 };
+        console.log('Retry данные:', data);
         const retryLikeCount = document.querySelector(`[data-project="retry"][data-type="like"] .vote-count`);
         const retryDislikeCount = document.querySelector(`[data-project="retry"][data-type="dislike"] .vote-count`);
         if (retryLikeCount) retryLikeCount.textContent = data.likes || 0;
@@ -715,10 +725,11 @@
         if (retryDislikeBtn && hasVoted('retry', 'dislike')) retryDislikeBtn.classList.add('voted');
       });
 
-      // Адское Наследие - второй Firebase
+      // Адское Наследие
       const votesRefTHL = ref(dbTHL, `votes/thl`);
       onValue(votesRefTHL, (snapshot) => {
         const data = snapshot.val() || { likes: 0, dislikes: 0 };
+        console.log('THL данные:', data);
         const thlLikeCount = document.querySelector(`[data-project="thl"][data-type="like"] .vote-count`);
         const thlDislikeCount = document.querySelector(`[data-project="thl"][data-type="dislike"] .vote-count`);
         if (thlLikeCount) thlLikeCount.textContent = data.likes || 0;
@@ -737,17 +748,20 @@
         const project = btn.dataset.project;
         const type = btn.dataset.type;
 
+        console.log(`Клик по кнопке: ${project} ${type}`);
+
         if (hasVoted(project, type)) {
           alert('Вы уже голосовали за этот проект!');
           return;
         }
 
         try {
-          // Выбираем правильную базу данных
           const db = project === 'retry' ? dbRetry : dbTHL;
+          console.log('Используем базу:', db);
           const votesRef = ref(db, `votes/${project}`);
           const snapshot = await get(child(votesRef, '/'));
           const data = snapshot.val() || { likes: 0, dislikes: 0 };
+          console.log('Текущие данные:', data);
 
           const updateData = {};
           if (type === 'like') {
@@ -756,10 +770,12 @@
             updateData.dislikes = (data.dislikes || 0) + 1;
           }
 
+          console.log('Обновляем:', updateData);
           await update(votesRef, updateData);
 
           localStorage.setItem(`voted_${project}_${type}`, 'true');
           btn.classList.add('voted');
+          console.log('Голос засчитан!');
         } catch (error) {
           console.error('Ошибка голосования:', error);
           alert('Ошибка при голосовании. Проверь настройки Firebase.');
