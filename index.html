@@ -19,7 +19,6 @@
       --red: #ef4444;
       --burgundy: #7f1d1d;
       --fire: #22c55e;
-      --fire-dark: #16a34a;
       --cross: #ef4444;
     }
 
@@ -384,18 +383,18 @@
       transform: translateY(-2px);
     }
     .vote-btn.fire {
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.35);
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.25);
     }
     .vote-btn.fire:hover {
-      background: rgba(34, 197, 94, 0.2);
+      background: rgba(34, 197, 94, 0.12);
     }
     .vote-btn.cross {
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
     }
     .vote-btn.cross:hover {
-      background: rgba(239, 68, 68, 0.2);
+      background: rgba(239, 68, 68, 0.12);
     }
     .vote-count {
       font-size: 1.1rem;
@@ -405,17 +404,15 @@
       font-family: 'Inter', sans-serif;
     }
     .vote-btn.voted {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
     .vote-btn.fire.voted {
-      background: var(--fire);
-      color: #000;
-      box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+      background: rgba(34, 197, 94, 0.25);
+      color: #86efac;
     }
     .vote-btn.cross.voted {
-      background: var(--cross);
-      color: #fff;
-      box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
     }
 
     .about-section {
